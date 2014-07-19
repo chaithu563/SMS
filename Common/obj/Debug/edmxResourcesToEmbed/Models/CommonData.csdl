@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SMSEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBranches" EntityType="SMSModel.tblBranch" />
+    <EntitySet Name="tblClasses" EntityType="SMSModel.tblClass" />
+    <EntitySet Name="tblDepartments" EntityType="SMSModel.tblDepartment" />
+    <EntitySet Name="tblUsers" EntityType="SMSModel.tblUser" />
+    <EntitySet Name="tblUserTypes" EntityType="SMSModel.tblUserType" />
+    <AssociationSet Name="FK__tblBranch__Branc__164452B1" Association="SMSModel.FK__tblBranch__Branc__164452B1">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblBranch" EntitySet="tblBranches" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClass__Branch__276EDEB3" Association="SMSModel.FK__tblClass__Branch__276EDEB3">
+      <End Role="tblBranch" EntitySet="tblBranches" />
+      <End Role="tblClass" EntitySet="tblClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDepart__Branc__1920BF5C" Association="SMSModel.FK__tblDepart__Branc__1920BF5C">
+      <End Role="tblBranch" EntitySet="tblBranches" />
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClass__Depart__286302EC" Association="SMSModel.FK__tblClass__Depart__286302EC">
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+      <End Role="tblClass" EntitySet="tblClasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDepart__DepHe__1A14E395" Association="SMSModel.FK__tblDepart__DepHe__1A14E395">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsers__UserTy__1ED998B2" Association="SMSModel.FK__tblUsers__UserTy__1ED998B2">
+      <End Role="tblUserType" EntitySet="tblUserTypes" />
+      <End Role="tblUsers" EntitySet="tblUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblBranch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="BranchHeadID" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="SMSModel.FK__tblBranch__Branc__164452B1" FromRole="tblBranch" ToRole="tblUsers" />
+    <NavigationProperty Name="tblClasses" Relationship="SMSModel.FK__tblClass__Branch__276EDEB3" FromRole="tblBranch" ToRole="tblClass" />
+    <NavigationProperty Name="tblDepartments" Relationship="SMSModel.FK__tblDepart__Branc__1920BF5C" FromRole="tblBranch" ToRole="tblDepartment" />
+  </EntityType>
+  <EntityType Name="tblClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <NavigationProperty Name="tblBranch" Relationship="SMSModel.FK__tblClass__Branch__276EDEB3" FromRole="tblClass" ToRole="tblBranch" />
+    <NavigationProperty Name="tblDepartment" Relationship="SMSModel.FK__tblClass__Depart__286302EC" FromRole="tblClass" ToRole="tblDepartment" />
+  </EntityType>
+  <EntityType Name="tblDepartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DepHeadId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <NavigationProperty Name="tblBranch" Relationship="SMSModel.FK__tblDepart__Branc__1920BF5C" FromRole="tblDepartment" ToRole="tblBranch" />
+    <NavigationProperty Name="tblClasses" Relationship="SMSModel.FK__tblClass__Depart__286302EC" FromRole="tblDepartment" ToRole="tblClass" />
+    <NavigationProperty Name="tblUser" Relationship="SMSModel.FK__tblDepart__DepHe__1A14E395" FromRole="tblDepartment" ToRole="tblUsers" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserPassword" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="UserTypeId" Type="Int32" />
+    <NavigationProperty Name="tblBranches" Relationship="SMSModel.FK__tblBranch__Branc__164452B1" FromRole="tblUsers" ToRole="tblBranch" />
+    <NavigationProperty Name="tblDepartments" Relationship="SMSModel.FK__tblDepart__DepHe__1A14E395" FromRole="tblUsers" ToRole="tblDepartment" />
+    <NavigationProperty Name="tblUserType" Relationship="SMSModel.FK__tblUsers__UserTy__1ED998B2" FromRole="tblUsers" ToRole="tblUserType" />
+  </EntityType>
+  <EntityType Name="tblUserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblUsers" Relationship="SMSModel.FK__tblUsers__UserTy__1ED998B2" FromRole="tblUserType" ToRole="tblUsers" />
+  </EntityType>
+  <Association Name="FK__tblBranch__Branc__164452B1">
+    <End Role="tblUsers" Type="SMSModel.tblUser" Multiplicity="0..1" />
+    <End Role="tblBranch" Type="SMSModel.tblBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblBranch">
+        <PropertyRef Name="BranchHeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClass__Branch__276EDEB3">
+    <End Role="tblBranch" Type="SMSModel.tblBranch" Multiplicity="0..1" />
+    <End Role="tblClass" Type="SMSModel.tblClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblClass">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDepart__Branc__1920BF5C">
+    <End Role="tblBranch" Type="SMSModel.tblBranch" Multiplicity="0..1" />
+    <End Role="tblDepartment" Type="SMSModel.tblDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDepartment">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClass__Depart__286302EC">
+    <End Role="tblDepartment" Type="SMSModel.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblClass" Type="SMSModel.tblClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblClass">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDepart__DepHe__1A14E395">
+    <End Role="tblUsers" Type="SMSModel.tblUser" Multiplicity="0..1" />
+    <End Role="tblDepartment" Type="SMSModel.tblDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblDepartment">
+        <PropertyRef Name="DepHeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUsers__UserTy__1ED998B2">
+    <End Role="tblUserType" Type="SMSModel.tblUserType" Multiplicity="0..1" />
+    <End Role="tblUsers" Type="SMSModel.tblUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUsers">
+        <PropertyRef Name="UserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

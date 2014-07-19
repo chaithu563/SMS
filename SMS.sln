@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{B9E3AE1E-6187-41BF-A12D-EC4E7EA9EE9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{53699007-D338-4329-AADC-EEF3066B2E82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppSpecific", "AppSpecific", "{B3212A6B-6D40-4AD7-BD56-2C8BB2B49BA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{45644195-5FA7-4E05-A39D-E3DB6DD6D8F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6623E269-BA34-4FD1-A971-CF0D80713DFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS", "SMS\SMS.csproj", "{05D4CC1D-3787-4E36-B531-669D8A758E63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05D4CC1D-3787-4E36-B531-669D8A758E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D4CC1D-3787-4E36-B531-669D8A758E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D4CC1D-3787-4E36-B531-669D8A758E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D4CC1D-3787-4E36-B531-669D8A758E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3212A6B-6D40-4AD7-BD56-2C8BB2B49BA8} = {53699007-D338-4329-AADC-EEF3066B2E82}
+		{45644195-5FA7-4E05-A39D-E3DB6DD6D8F5} = {53699007-D338-4329-AADC-EEF3066B2E82}
+		{4E46B641-D6FF-4BA8-9CE2-DC78E2C34551} = {45644195-5FA7-4E05-A39D-E3DB6DD6D8F5}
+		{05D4CC1D-3787-4E36-B531-669D8A758E63} = {6623E269-BA34-4FD1-A971-CF0D80713DFC}
+	EndGlobalSection
+EndGlobal
