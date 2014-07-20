@@ -10,8 +10,8 @@ using System.Web.OData.Routing;
 
 namespace SMS.DAL.Common.Controllers
 {
-     [ODataRoutePrefix("Branches")]
-    public class CommonOdataController : ApiController
+     [ODataRoutePrefix("tblBranchs")]
+    public class CommonOdataController : ODataController
     {
 
         readonly SMSEntities _db = new SMSEntities();
@@ -20,7 +20,7 @@ namespace SMS.DAL.Common.Controllers
         [ODataRoute]
         public IHttpActionResult Get()
         {
-            return Ok(_db.tblBranches.AsQueryable());
+            return Ok(_db.tblBranchs.AsQueryable());
         }
     }
 }

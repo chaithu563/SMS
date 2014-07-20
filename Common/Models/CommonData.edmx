@@ -159,21 +159,21 @@
     <edmx:ConceptualModels>
       <Schema Namespace="SMSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="SMSEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="tblBranches" EntityType="SMSModel.tblBranch" />
+          <EntitySet Name="tblBranchs" EntityType="SMSModel.tblBranch" />
           <EntitySet Name="tblClasses" EntityType="SMSModel.tblClass" />
           <EntitySet Name="tblDepartments" EntityType="SMSModel.tblDepartment" />
           <EntitySet Name="tblUsers" EntityType="SMSModel.tblUser" />
           <EntitySet Name="tblUserTypes" EntityType="SMSModel.tblUserType" />
           <AssociationSet Name="FK__tblBranch__Branc__164452B1" Association="SMSModel.FK__tblBranch__Branc__164452B1">
             <End Role="tblUsers" EntitySet="tblUsers" />
-            <End Role="tblBranch" EntitySet="tblBranches" />
+            <End Role="tblBranch" EntitySet="tblBranchs" />
           </AssociationSet>
           <AssociationSet Name="FK__tblClass__Branch__276EDEB3" Association="SMSModel.FK__tblClass__Branch__276EDEB3">
-            <End Role="tblBranch" EntitySet="tblBranches" />
+            <End Role="tblBranch" EntitySet="tblBranchs" />
             <End Role="tblClass" EntitySet="tblClasses" />
           </AssociationSet>
           <AssociationSet Name="FK__tblDepart__Branc__1920BF5C" Association="SMSModel.FK__tblDepart__Branc__1920BF5C">
-            <End Role="tblBranch" EntitySet="tblBranches" />
+            <End Role="tblBranch" EntitySet="tblBranchs" />
             <End Role="tblDepartment" EntitySet="tblDepartments" />
           </AssociationSet>
           <AssociationSet Name="FK__tblClass__Depart__286302EC" Association="SMSModel.FK__tblClass__Depart__286302EC">
@@ -324,7 +324,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SMSModelStoreContainer" CdmEntityContainer="SMSEntities">
-          <EntitySetMapping Name="tblBranches">
+          <EntitySetMapping Name="tblBranchs">
             <EntityTypeMapping TypeName="SMSModel.tblBranch">
               <MappingFragment StoreEntitySet="tblBranch">
                 <ScalarProperty Name="Id" ColumnName="Id" />

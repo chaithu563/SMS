@@ -25,7 +25,7 @@ namespace SMS.DAL.Common.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<tblBranch> tblBranches { get; set; }
+        public DbSet<tblBranch> tblBranchs { get; set; }
         public DbSet<tblClass> tblClasses { get; set; }
         public DbSet<tblDepartment> tblDepartments { get; set; }
         public DbSet<tblUser> tblUsers { get; set; }

@@ -17,8 +17,9 @@ namespace SMS.DAL.Common
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+           GlobalConfiguration.Configure( WebApiConfig.Register);
             
         }
     }
