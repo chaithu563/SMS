@@ -96,7 +96,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
     <Content Include="app\index.html" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="styles\bootstrap-theme.css" />
+    <Content Include="styles\bootstrap-theme.min.css" />
+    <Content Include="styles\bootstrap.css" />
+    <Content Include="styles\bootstrap.min.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +110,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="styles\bootstrap-theme.css.map" />
+    <Content Include="styles\bootstrap.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,7 +120,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="scripts\" />
+    <Folder Include="app\modules\admin\" />
+    <Folder Include="app\modules\common\" />
+    <Folder Include="i18n\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
